@@ -151,13 +151,30 @@ async function getKanji() {
 
         {!loading && !error && (
           kanjiList.length > 0 ? (
-            <ol>
-              {kanjiList.map((item) => (
-                <li key={item.id}>
-                  {item.kanji}
-                </li>
-                ))}
-            </ol>
+            <>
+              <table border="1" cellPadding="8" cellSpacing="0" style={{ width: '100%', borderCollapse: 'collapse'}}>
+                <thead>
+                  <tr style={{backgroundColor: '#414237'}}>
+                    <th>No.</th>
+                    <th>Kanji</th>
+                    <th>Hiragana</th>
+                    <th>Katakana</th>
+                    <th>Romaji</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {kanjiList.map((item) => (
+                    <tr key={item.id}>
+                      <td>{item.id}</td>
+                      <td>{item.kanji}</td>
+                      <td>{item.hiragana}</td>
+                      <td>{item.katakana}</td>
+                      <td>{item.romaji}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </>
         ) : (
           <p>Belum ada data kanji.</p>
         )
