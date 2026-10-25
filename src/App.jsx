@@ -39,7 +39,7 @@ function App() {
 async function getKanji() {
   const { data, error } = await supabase
     .from("n5_kanji")
-    .select("id, kanji")
+    .select("id, kanji, hiragana, katakana, romaji")
     .order("id", { ascending: true });
 
   console.log("Data dari Supabase:", data);
