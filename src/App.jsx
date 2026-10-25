@@ -3,6 +3,7 @@ import { supabase } from "./lib/supabaseClient";
 
 function App() {
   // State untuk input kanji disini
+  const [i, setI] = useState(0);
   const [kanjiInput, setKanjiInput] = useState('');
   const [hiraganaInput, setHiraganaInput] = useState('');
   const [katakanaInput, setKatakanaInput] = useState('');
@@ -155,7 +156,7 @@ async function getKanji() {
               <table border="1" cellPadding="8" cellSpacing="0" style={{ width: '100%', borderCollapse: 'collapse'}}>
                 <thead>
                   <tr style={{backgroundColor: '#414237'}}>
-                    <th>No.</th>
+                    <th>No</th>
                     <th>Kanji</th>
                     <th>Hiragana</th>
                     <th>Katakana</th>
@@ -165,7 +166,7 @@ async function getKanji() {
                 <tbody>
                   {kanjiList.map((item) => (
                     <tr key={item.id}>
-                      <td>{item.id}</td>
+                      <td>{i+1}.</td>
                       <td>{item.kanji}</td>
                       <td>{item.hiragana}</td>
                       <td>{item.katakana}</td>
